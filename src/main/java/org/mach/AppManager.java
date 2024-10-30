@@ -2,7 +2,7 @@ package org.mach;
 
 import org.mach.http.ViaCEPClient;
 import org.mach.json.JsonCreator;
-import org.mach.templates.CEP;
+import org.mach.records.CEP;
 
 import java.io.IOException;
 import java.util.Scanner;

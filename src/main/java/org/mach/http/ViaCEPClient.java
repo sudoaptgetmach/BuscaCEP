@@ -3,7 +3,7 @@ package org.mach.http;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.mach.templates.CEP;
+import org.mach.records.CEP;
 
 import java.io.IOException;
 import java.net.URI;
