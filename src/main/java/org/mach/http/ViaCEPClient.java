@@ -1,6 +1,8 @@
 package org.mach.http;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.mach.templates.CEP;
 
 import java.io.IOException;
@@ -24,6 +26,11 @@ public class ViaCEPClient {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String responseBody = response.body();
+
+        JsonObject jsonResponse = JsonParser.parseString(responseBody).getAsJsonObject();
+        if (jsonResponse.has("erro") && jsonResponse.get("erro").getAsBoolean()) {
+            return new CEP(input, "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A");
+        }
 
         return gson.fromJson(responseBody, CEP.class);
     }
